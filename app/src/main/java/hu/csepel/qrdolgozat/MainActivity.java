@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 IntentIntegrator intentIntegrator = new IntentIntegrator(MainActivity.this);
                 intentIntegrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE);
-                intentIntegrator.setPrompt("");
+                intentIntegrator.setPrompt("QR Code Scan");
                 intentIntegrator.setBeepEnabled(false);
                 intentIntegrator.initiateScan();
             }
@@ -50,7 +50,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (writePermission) {
                     try {
-                        FajlbaIras.kiir("répa");
+                        String szoveg = qrTextView.getText().toString();
+                        FajlbaIras.kiir(szoveg);
                     } catch (IOException e) {
                         e.getStackTrace();
                     }
